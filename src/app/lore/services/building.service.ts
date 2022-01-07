@@ -8,7 +8,7 @@ import { catchError, map } from 'rxjs/operators';
 	providedIn: 'root',
 })
 export class BuildingService {
-	private apiUrl = 'api/v1/mega/building';
+	private apiUrl = 'http://localhost:8080/api/v1/mega/building';
 
 	constructor(private http: HttpClient) {}
 
@@ -19,6 +19,8 @@ export class BuildingService {
 	}
 
 	get(id: string): Observable<Building> {
+		console.log(Building);
+		
 		return this.http
 		  .get<Building>(`${this.apiUrl}/${id}`)
 		  .pipe(map(data => data), catchError(this.handleError))

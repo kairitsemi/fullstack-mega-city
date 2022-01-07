@@ -73,7 +73,7 @@ export class NewBuildingComponent implements OnInit {
 		
 		const buildingToSave = { ...this.form.value, id: this.building.id };
 
-			this.buildingService.put(buildingToSave).subscribe();
+			this.buildingService.post(buildingToSave).subscribe();
 	}
 
 

@@ -38,21 +38,26 @@ export class BuildingFormComponent implements OnInit {
 				building?.name || '', 
 				[Validators.required, Validators.maxLength(50)]
 			),
+			
 			address: new FormControl(
 				building?.address || '',
 				[Validators.required, Validators.maxLength(50)]
 			),
+
 			index: new FormControl(
 				building?.index || '', [Validators.required, Validators.pattern('(^NO)([A-Z0-9]{1,9})')]
 			),
+
 			sectorCode: new FormControl(building?.sectorCode || ''
 			),
+
 			energyUnitMax: new FormControl(
 				{
 					value: building?.energyUnitMax || '',
 					disabled: building?.id, 
 				}, [Validators.required, Validators.max(2000)]
 			),
+
 			energyUnits: new FormControl(
 				building?.energyUnits || '', Validators.required
 			),
@@ -69,6 +74,7 @@ export class BuildingFormComponent implements OnInit {
 	}
 
 	submit() {
+		console.log(this.form.value);
 		const buildingToSave = { ...this.form.value, id: this.building.id };
 
 			this.buildingService.put(buildingToSave).subscribe();
