@@ -74,7 +74,7 @@ export class BuildingFormComponent implements OnInit {
 	}
 
 	submit() {
-		console.log(this.form.value);
+		
 		const buildingToSave = { ...this.form.value, id: this.building.id };
 
 			this.buildingService.put(buildingToSave).subscribe();
